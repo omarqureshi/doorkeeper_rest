@@ -1,7 +1,8 @@
 require "doorkeeper_rest/version"
+require 'doorkeeper_rest/activeresource/validations/uniqueness'
 
 module DoorkeeperRest
-  require 'doorkeeper_rest/activeresource/validations/uniqueness'
+  require 'doorkeeper_rest/activeresource/validations'
   require 'doorkeeper_rest/concerns/activeresource_fillers'
 end
 
@@ -17,6 +18,7 @@ module Doorkeeper
     require "doorkeeper/models/#{@config.orm}/application"
     require 'doorkeeper/models/access_grant'
     require 'doorkeeper/models/access_token'
+    require "doorkeeper/models/application"
     require 'doorkeeper_rest/models/application'
   end
 end

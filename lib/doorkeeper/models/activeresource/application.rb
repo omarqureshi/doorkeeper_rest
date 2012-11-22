@@ -9,5 +9,15 @@ module Doorkeeper
       integer 'owner_id'
     end
 
+    def self.model_name
+      ActiveModel::Name.new(self, nil, "Application")
+    end
+
+    def save
+      result = super
+      ::Rails.logger.error errors.inspect
+      result
+    end
+
   end
 end
