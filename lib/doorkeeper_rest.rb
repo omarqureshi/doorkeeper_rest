@@ -3,6 +3,7 @@ require 'doorkeeper_rest/activeresource/validations/uniqueness'
 
 module DoorkeeperRest
   require 'doorkeeper_rest/activeresource/validations'
+  require 'doorkeeper_rest/activeresource/base'
   require 'doorkeeper_rest/concerns/activeresource_fillers'
 end
 

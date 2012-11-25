@@ -14,8 +14,10 @@ module ActiveResource
       def validate_each(rec, attr, val)
         finder_class = rec.class
         results = finder_class.all(:params => {attr => val})
-        results = results.reject {|res| res.id == rec.send(:id)} if rec.new_record?
-        rec.errors.add(attr, :taken, options.merge(:value => val)) if results.any?
+        if results
+          results = results.reject {|res| res.id == rec.send(:id)} if rec.new_record?
+          rec.errors.add(attr, :taken, options.merge(:value => val)) if results.any?
+        end
       end
     end
   end
