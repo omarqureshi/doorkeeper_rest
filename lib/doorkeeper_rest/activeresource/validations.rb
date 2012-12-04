@@ -16,5 +16,14 @@ module ActiveResource
     end
     
   end
+
+  module Validations
+    alias_method :valid_without_callbacks, :valid?
+    def valid?
+      run_callbacks :validate do
+        valid_without_callbacks
+      end
+    end
+  end
   
 end
