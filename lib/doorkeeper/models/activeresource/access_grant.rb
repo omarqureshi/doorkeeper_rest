@@ -16,6 +16,5 @@ module Doorkeeper
       obj.save
       obj
     end
-
   end
 end

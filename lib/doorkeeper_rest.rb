@@ -21,5 +21,6 @@ module Doorkeeper
     require 'doorkeeper/models/access_token'
     require "doorkeeper/models/application"
     require 'doorkeeper_rest/models/application'
+    require 'doorkeeper_rest/models/access_grant'
   end
 end
