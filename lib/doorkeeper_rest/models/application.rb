@@ -1,11 +1,11 @@
 module Doorkeeper
   class Application
     def self.by_uid(uid)
-      first(:conditions => {:uid => uid})
+      first(:params => {:uid => uid})
     end
 
     def self.authenticate(uid, secret)
-      all({:uid => uid, :secret => secret}).first
+      first(:params => {:uid => uid, :secret => secret})
     end
   end
 end

@@ -1,7 +1,7 @@
 module Doorkeeper
   class AccessGrant
     def self.authenticate(token)
-      all(:conditions => {:token  => token}).first
+      first(:params => {:token  => token})
     end
   end
 end
