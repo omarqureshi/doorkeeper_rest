@@ -22,6 +22,26 @@ end
 module ActiveResource
   class Base
     include Callbacks
+
+    def [](attr)
+      attributes[attr]
+    end
+
+    def created_at
+      if attributes[:created_at]
+        Time.parse(attributes[:created_at])
+      else
+        Time.now
+      end
+    end
+
+    def updated_at
+      if attributes[:updated_at]
+        Time.parse(attributes[:updated_at])
+      else
+        Time.now
+      end
+    end
     
     def self.create!(*args)
       obj = create(*args)

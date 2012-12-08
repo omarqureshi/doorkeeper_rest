@@ -20,7 +20,10 @@ module Doorkeeper
     require 'doorkeeper/models/access_grant'
     require 'doorkeeper/models/access_token'
     require "doorkeeper/models/application"
+    require "doorkeeper/models/revocable"
     require 'doorkeeper_rest/models/application'
     require 'doorkeeper_rest/models/access_grant'
+    require 'doorkeeper_rest/models/access_token'
+    require 'doorkeeper_rest/models/revocable'
   end
 end

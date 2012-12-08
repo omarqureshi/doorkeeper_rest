@@ -15,10 +15,22 @@ module Doorkeeper
 
     def self.last_authorized_token_for(application, resource_owner_id)
       begin
-        get(:last_authorized, :application_id => application.id, :resource_owner_id => resource_owner_id)
+        find(:all, :from => :last_authorized, :application_id => application.id, :resource_owner_id => resource_owner_id)
       rescue ActiveResource::ResourceNotFound
         nil
       end
+    end
+
+    def application
+      Doorkeeper::Application.find(application_id)
+    end
+
+    def self.create!(*args)
+      obj = self.new(*args)
+      obj.token = UniqueToken.generate
+      obj.refresh_token = UniqueToken.generate if obj.use_refresh_token?
+      obj.save
+      obj
     end
     
   end

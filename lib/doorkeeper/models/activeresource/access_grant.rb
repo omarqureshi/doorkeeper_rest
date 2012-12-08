@@ -7,7 +7,6 @@ module Doorkeeper
     schema do
       string 'token', 'refresh_token', 'scopes', 'redirect_uri'
       integer 'resource_owner_id', 'application_id', 'expires_in'
-      attribute 'created_at', 'string'
     end
 
     def self.create!(*args)
@@ -16,5 +15,6 @@ module Doorkeeper
       obj.save
       obj
     end
+
   end
 end
