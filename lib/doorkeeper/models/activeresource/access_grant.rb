@@ -16,5 +16,13 @@ module Doorkeeper
       obj
     end
 
+    def revoked_at
+      if attributes[:revoked_at]
+        Time.parse(attributes[:revoked_at])
+      else
+        nil
+      end
+    end
+
   end
 end
