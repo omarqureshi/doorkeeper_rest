@@ -15,7 +15,7 @@ module Doorkeeper
 
     def self.last_authorized_token_for(application, resource_owner_id)
       begin
-        find(:all, :from => :last_authorized, :params => {:application_id => application.id, :resource_owner_id => resource_owner_id})
+        find(:first, :from => :last_authorized, :params => {:application_id => application.id, :resource_owner_id => resource_owner_id})
       rescue ActiveResource::ResourceNotFound
         nil
       end
