@@ -15,7 +15,7 @@ module ActiveResource
         finder_class = rec.class
         results = finder_class.all(:params => {attr => val})
         if results
-          results = results.reject {|res| res.id == rec.send(:id)} if rec.new_record?
+          results = results.reject {|res| res.id == rec.send(:id)}
           rec.errors.add(attr, :taken, options.merge(:value => val)) if results.any?
         end
       end
